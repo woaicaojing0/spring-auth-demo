@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: provoder-user
+          predicates:
+            - Path=/gateway/**
+          filters:
+            - StripPrefix=1
+          uri: lb://service-provider
+        - id: consumer-user
+          predicates:
+            - Path=/consumer/**
+          filters:
+            - StripPrefix=1
+          uri: lb://service-consumer
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: demo-gateway
+server:
+  port: 8088

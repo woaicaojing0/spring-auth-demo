@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.demo.user.feign.fallback.UserFeignFallbackImpl,\
+  com.demo.user.feign.factory.UserFeignFallbackFactory\
